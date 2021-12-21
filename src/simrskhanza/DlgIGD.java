@@ -3969,6 +3969,7 @@ public final class DlgIGD extends javax.swing.JDialog {
             }
             
         }
+       MnLabelTracker2ActionPerformed(null);
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
@@ -4227,7 +4228,9 @@ public final class DlgIGD extends javax.swing.JDialog {
                 
                 }else if(i==7){
                     MnBarcodeRM9ActionPerformed(null);
-                }
+                }else if(i==8){
+                   MnLabelTracker1ActionPerformed(null);
+                }  
             }
             
         }

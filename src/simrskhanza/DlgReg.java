@@ -5536,8 +5536,10 @@ public final class DlgReg extends javax.swing.JDialog {
                 }else{
                     isRegistrasi();
                 }  
-            }                          
+            }
+            
         }
+       
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
@@ -6431,7 +6433,9 @@ public final class DlgReg extends javax.swing.JDialog {
                 
                 }else if(i==7){
                     MnBarcodeRM9ActionPerformed(null);
-                }
+                }else if(i==8){
+                   MnLabelTracker1ActionPerformed(null);
+                }  
             }
             
         }
