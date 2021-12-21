@@ -1203,6 +1203,16 @@ public final class DlgResepObat extends javax.swing.JDialog {
                 getData();
             } catch (java.lang.NullPointerException e) {
             }
+            if(evt.getClickCount()==2){
+                i=tbResep.getSelectedColumn();
+                if(i==0){
+                    ppResepObatActionPerformed(null);                  
+                }else if(i==1){
+                    ppLembarObat1ActionPerformed(null);                    
+                }else if(i==2){
+                    ppLabelDataObatActionPerformed(null);                    
+                }
+            }
         }
 }//GEN-LAST:event_tbResepMouseClicked
 
