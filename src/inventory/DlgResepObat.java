@@ -1743,9 +1743,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("emailrs",akses.getemailrs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("penanggung",Sequel.cariIsi("select png_jawab from penjab where kd_pj=?",Sequel.cariIsi("select kd_pj from reg_periksa where no_rawat=?",TNoRw.getText())));
-            param.put("poli",Sequel.cariIsi("select poliklinik.nm_poli from poliklinik join reg_periksa on poliklinik.kd_poli= reg_periksa.kd_poli where kd_pj=?",Sequel.cariIsi("select kd_pj from reg_periksa where no_rawat=?",TNoRw.getText())));
-            param.put("tgl_lahir",Sequel.cariIsi("select pasien.tgl_lahir from pasien join reg_periksa on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.kd_pj=?",Sequel.cariIsi("select kd_pj from reg_periksa where no_rawat=?",TNoRw.getText())));
-            param.put("no_ktp",Sequel.cariIsi("select pasien.no_ktp from pasien join reg_periksa on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.kd_pj=?",Sequel.cariIsi("select kd_pj from reg_periksa where no_rawat=?",TNoRw.getText())));
+            param.put("poli",Sequel.cariIsi("select poliklinik.nm_poli from poliklinik inner join reg_periksa on poliklinik.kd_poli= reg_periksa.kd_poli where reg_periksa.no_rawat=?",Sequel.cariIsi("select no_rawat from reg_periksa where no_rawat=?",TNoRw.getText())));
+            param.put("tgl_lahir",Sequel.cariIsi("select pasien.tgl_lahir from pasien inner join reg_periksa on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rawat=?",Sequel.cariIsi("select no_rawat from reg_periksa where no_rawat=?",TNoRw.getText())));
+            param.put("no_ktp",Sequel.cariIsi("select pasien.no_ktp from pasien inner join reg_periksa on pasien.no_rkm_medis=reg_periksa.no_rkm_medis where reg_periksa.no_rawat=?",Sequel.cariIsi("select no_rawat from reg_periksa where no_rawat=?",TNoRw.getText())));
             param.put("propinsirs",akses.getpropinsirs());
             param.put("tanggal",Valid.SetTgl(DTPBeri.getSelectedItem()+""));
             param.put("norawat",TNoRw.getText());
@@ -1757,7 +1757,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+NmDokter.getText()+"\nID "+(finger.equals("")?KdDokter.getText():finger)+"\n"+DTPBeri.getSelectedItem());  
             param.put("jam",cmbJam.getSelectedItem()+":"+cmbMnt.getSelectedItem()+":"+cmbDtk.getSelectedItem());
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            
+
             Valid.MyReport("rptLembarObat2.jasper",param,"::[ Lembar Pemberian Obat ]::");
             this.setCursor(Cursor.getDefaultCursor());
         }
