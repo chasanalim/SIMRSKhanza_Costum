@@ -274,6 +274,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnCetak = new javax.swing.JMenuItem();
+        MnCetak1 = new javax.swing.JMenuItem();
         jLabel20 = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
@@ -364,6 +365,22 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(MnCetak);
+
+        MnCetak1.setBackground(new java.awt.Color(255, 255, 254));
+        MnCetak1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnCetak1.setForeground(new java.awt.Color(50, 50, 50));
+        MnCetak1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnCetak1.setText("Cetak Surat Kontrol FKTP");
+        MnCetak1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnCetak1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnCetak1.setName("MnCetak1"); // NOI18N
+        MnCetak1.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnCetak1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnCetak1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(MnCetak1);
 
         jLabel20.setText("No.Antrian :");
         jLabel20.setName("jLabel20"); // NOI18N
@@ -611,7 +628,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -633,7 +650,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -654,7 +671,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(85, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -676,7 +693,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -759,7 +776,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         TPasien.setBounds(190, 40, 190, 23);
 
         TanggalSurat.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalSurat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021 14:29:48" }));
+        TanggalSurat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021 10:04:58" }));
         TanggalSurat.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalSurat.setDoubleBuffered(true);
         TanggalSurat.setName("TanggalSurat"); // NOI18N
@@ -855,7 +872,7 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         jLabel5.setBounds(0, 120, 90, 23);
 
         TanggalPeriksa.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-11-2021 14:29:48" }));
+        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2021 10:04:59" }));
         TanggalPeriksa.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalPeriksa.setName("TanggalPeriksa"); // NOI18N
         TanggalPeriksa.setOpaque(false);
@@ -872,10 +889,10 @@ public class SuratKontrolUmum extends javax.swing.JDialog {
         FormInput.add(TanggalPeriksa);
         TanggalPeriksa.setBounds(110, 250, 132, 23);
 
-        jLabel15.setText("No. Surat:");
+        jLabel15.setText("No. Surat VClaim:");
         jLabel15.setName("jLabel15"); // NOI18N
         FormInput.add(jLabel15);
-        jLabel15.setBounds(30, 10, 60, 23);
+        jLabel15.setBounds(0, 10, 90, 23);
 
         NoAntrian.setHighlighter(null);
         NoAntrian.setName("NoAntrian"); // NOI18N
@@ -1497,6 +1514,65 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_TanggalPeriksaItemStateChanged
 
+    private void MnCetak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetak1ActionPerformed
+       if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
+            TanggalPeriksa.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Gagal menghapus. Pilih dulu data yang mau dihapus.\nKlik data pada table untuk memilih...!!!!");
+        }else if(!(TPasien.getText().trim().equals(""))){
+            if(tbObat.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                Map<String, Object> param = new HashMap<>();  
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());   
+                param.put("logo",Sequel.cariGambar("select logo from setting")); 
+               // param.put("nama",TPasien.getText());
+                param.put("tgl_lahir",Sequel.cariIsi("select DATE_FORMAT(tgl_lahir,'%d-%m-%Y') from pasien where no_rkm_medis=?",TNoRM.getText()));
+               // param.put("no_rm",TNoRM.getText());
+               // param.put("diagnosa",Diagnosa.getText());
+                Sequel.queryu("truncate table temporary_booking_registrasi");                
+                Sequel.menyimpan("temporary_booking_registrasi","'0','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),0).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),1).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),2).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),3).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),4).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),5).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),6).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),7).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),8).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),9).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),10).toString()+"','"+
+                    TanggalPeriksa.getSelectedItem()+"','"+
+                    TanggalSurat.getSelectedItem()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),13).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),14).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),15).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),16).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),17).toString()+"','"+
+                    tabMode.getValueAt(tbObat.getSelectedRow(),18).toString()+"','"+    
+                    tabMode.getValueAt(tbObat.getSelectedRow(),19).toString()+"','','','','','','','','','','','','','','','','',''","Rekap Nota Pembayaran");
+
+                   Valid.MyReport("rptSuratKontrolUmumRanap1.jasper","report","::[ Surat Kontrol Umum Ranap ]::",param); 
+//                 Valid.MyReportqry("rptSuratKontrolUmumRanap.jasper","report","::[ Surat Kontrol Umum Ranap ]::",
+//                              "" +
+//                              " " +
+//                              " " +
+//                              " "+
+//                              " "+
+//                              "",param);
+                this.setCursor(Cursor.getDefaultCursor());
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih terlebih dulu data yang mau anda hapus...\n Klik data pada table untuk memilih data...!!!!");
+            }  
+        }
+    }//GEN-LAST:event_MnCetak1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1538,6 +1614,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.TextBox Lain;
     private widget.TextBox Luka;
     private javax.swing.JMenuItem MnCetak;
+    private javax.swing.JMenuItem MnCetak1;
     private widget.TextBox Ngt;
     private widget.TextBox NmDokter;
     private widget.TextBox NmPoli;

@@ -6736,39 +6736,35 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_ralan where no_rawat=?",TKeluhan,TNoRw.getText());
         Sequel.cariIsi("select td from penilaian_awal_keperawatan_ralan where no_rawat=?",TTensi,TNoRw.getText());
         Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_ralan where no_rawat=?",TNadi,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_ralan where no_rawat=?",TTensi,TNoRw.getText());
         Sequel.cariIsi("select rr from penilaian_awal_keperawatan_ralan where no_rawat=?",TRespirasi,TNoRw.getText());
         Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_ralan where no_rawat=?",TSuhu,TNoRw.getText());
         Sequel.cariIsi("select gcs from penilaian_awal_keperawatan_ralan where no_rawat=?",TGCS,TNoRw.getText());
         Sequel.cariIsi("select bb from penilaian_awal_keperawatan_ralan where no_rawat=?",TBerat,TNoRw.getText());
         Sequel.cariIsi("select tb from penilaian_awal_keperawatan_ralan where no_rawat=?",TTinggi,TNoRw.getText());
         
-         Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_gigi where no_rawat=?",TKeluhan,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_gigi where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_gigi where no_rawat=?",TNadi,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_gigi where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_gigi where no_rawat=?",TRespirasi,TNoRw.getText());
-        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_gigi where no_rawat=?",TSuhu,TNoRw.getText());
-        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_gigi where no_rawat=?",TBerat,TNoRw.getText());
-        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_gigi where no_rawat=?",TTinggi,TNoRw.getText());
-        
-        Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TKeluhan,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TNadi,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TRespirasi,TNoRw.getText());
-        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TSuhu,TNoRw.getText());
-        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TBerat,TNoRw.getText());
-        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TTinggi,TNoRw.getText());
-        
-        Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TKeluhan,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TNadi,TNoRw.getText());
-        Sequel.cariIsi("select td from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTensi,TNoRw.getText());
-        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TRespirasi,TNoRw.getText());
-        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TSuhu,TNoRw.getText());
-        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TBerat,TNoRw.getText());
-        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTinggi,TNoRw.getText());
+//         Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_gigi where no_rawat=?",TKeluhan,TNoRw.getText());
+//        Sequel.cariIsi("select td from penilaian_awal_keperawatan_gigi where no_rawat=?",TTensi,TNoRw.getText());
+//        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_gigi where no_rawat=?",TNadi,TNoRw.getText());
+//        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_gigi where no_rawat=?",TRespirasi,TNoRw.getText());
+//        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_gigi where no_rawat=?",TSuhu,TNoRw.getText());
+//        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_gigi where no_rawat=?",TBerat,TNoRw.getText());
+//        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_gigi where no_rawat=?",TTinggi,TNoRw.getText());
+//        
+//        Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TKeluhan,TNoRw.getText());
+//        Sequel.cariIsi("select td from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TTensi,TNoRw.getText());
+//        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TNadi,TNoRw.getText());
+//        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TRespirasi,TNoRw.getText());
+//        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TSuhu,TNoRw.getText());
+//        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TBerat,TNoRw.getText());
+//        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_kebidanan where no_rawat=?",TTinggi,TNoRw.getText());
+//        
+//        Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TKeluhan,TNoRw.getText());
+//        Sequel.cariIsi("select td from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTensi,TNoRw.getText());
+//        Sequel.cariIsi("select nadi from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TNadi,TNoRw.getText());
+//        Sequel.cariIsi("select rr from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TRespirasi,TNoRw.getText());
+//        Sequel.cariIsi("select suhu from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TSuhu,TNoRw.getText());
+//        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TBerat,TNoRw.getText());
+//        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTinggi,TNoRw.getText());
         
         KdDok2.setText(KdDok.getText());
         KdDok3.setText(KdDok.getText());
