@@ -423,7 +423,7 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
     }
     
     public void isCek(){        
-        BtnTambah.setEnabled(akses.getadmin());
+        BtnTambah.setEnabled(akses.getuser());
     }
     
     private void tampil2() {
