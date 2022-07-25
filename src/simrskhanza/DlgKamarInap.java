@@ -21,7 +21,7 @@ import bridging.SisruteRujukanKeluar;
 import laporan.DlgDiagnosaPenyakit;
 import informasi.InformasiAnalisaKamin;
 import keuangan.DlgKamar;
-import fungsi.WarnaTable;
+import fungsi.WarnaTableRanap;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
@@ -109,8 +109,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",
-            "Diagnosa Awal","Diagnosa Akhir","Tgl.Masuk","Jam Masuk","Tgl.Keluar","Jam Keluar",
+            "No.Rawat","No.RM","Nama Pasien","Alamat Pasien","P.J.","Hub P.J.","Jenis Bayar","Kamar","Tarif",
+            "Diagnosa Awal","Diagnosa Akhir","Tgl.Masuk","Jm.Masuk","Tgl.Keluar","Jm.Keluar",
             "Ttl.Biaya","Stts.Pulang","Lama","Dokter P.J.","Kamar","Status Bayar","Agama"
             }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -123,52 +123,57 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         for (i = 0; i < 22; i++) {
             TableColumn column = tbKamIn.getColumnModel().getColumn(i);
-            if(i==0){
-                column.setPreferredWidth(105);
-            }else if(i==1){
-                column.setPreferredWidth(55);
-            }else if(i==2){
+            if(i==0){ //No Rawat
+                column.setPreferredWidth(60);
+            }else if(i==1){ //No RM
+                column.setPreferredWidth(50);
+            }else if(i==2){ //Pasien
                 column.setPreferredWidth(170);
-            }else if(i==3){
+            }else if(i==3){ //Alamat
                 column.setPreferredWidth(150);
-            }else if(i==4){
-                column.setPreferredWidth(110);
-            }else if(i==5){
-                column.setPreferredWidth(80);
-            }else if(i==6){
-                column.setPreferredWidth(80);
-            }else if(i==7){
-                column.setPreferredWidth(140);
-            }else if(i==8){
-                column.setPreferredWidth(140);
-            }else if(i==9){
-                column.setPreferredWidth(60);
-            }else if(i==10){
+            }else if(i==4){ // PJ
                 column.setPreferredWidth(90);
-            }else if(i==11){
-                column.setPreferredWidth(90);
-            }else if(i==12){
+            }else if(i==5){ // Hub PJ
                 column.setPreferredWidth(60);
-            }else if(i==13){
-                column.setPreferredWidth(70);
-            }else if(i==14){
-                column.setPreferredWidth(60);
-            }else if(i==15){
-                column.setPreferredWidth(80);
-            }else if(i==16){
-                column.setPreferredWidth(75);
-            }else if(i==17){
-                column.setPreferredWidth(40);
-            }else if(i==18){
+            }else if(i==6){ //Jenis Bayar
+                column.setPreferredWidth(95);
+            }else if(i==7){ //Kamar
                 column.setPreferredWidth(120);
-            }else if(i==19){
+            }else if(i==8){ // Tarif kamar
+                column.setPreferredWidth(50);
+            }else if(i==9){ //Diagnosa Awal
+                column.setPreferredWidth(75);
+            }else if(i==10){ //Diagnosa Akhir
+                column.setPreferredWidth(30);
+            }else if(i==11){ //Tgl Masuk
+                column.setPreferredWidth(65);
+            }else if(i==12){ //Jam Masuk
+                column.setPreferredWidth(55);
+            }else if(i==13){ //Tgl Keluar
+                column.setPreferredWidth(30);
+            }else if(i==14){ //Jam Keluar
+                column.setPreferredWidth(30);
+            }else if(i==15){ //Total Biaya
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==21){
-                column.setPreferredWidth(50);
+            }else if(i==16){ //Status Pulang
+                column.setPreferredWidth(65);
+            }else if(i==17){ //Lama
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==18){ //DokterPJ
+                column.setPreferredWidth(100);
+            }else if(i==19){ //Kamar
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==20){ //Status Bayar
+                column.setPreferredWidth(60);
+            }else if(i==21){ //Agama
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }
         }
-        tbKamIn.setDefaultRenderer(Object.class, new WarnaTable());
+        tbKamIn.setDefaultRenderer(Object.class, new WarnaTableRanap());
 
         norawat.setDocument(new batasInput((byte)17).getKata(norawat));
         kdkamar.setDocument(new batasInput((byte)15).getKata(kdkamar));
@@ -798,6 +803,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCetakSuratSakitPihak2 = new javax.swing.JMenuItem();
         MnRingkasanMasukKeluar = new javax.swing.JMenuItem();
         MnGelang = new javax.swing.JMenu();
+        MnBarcodeLabelObat = new javax.swing.JMenuItem();
         MnLabelTracker = new javax.swing.JMenuItem();
         MnLabelTracker1 = new javax.swing.JMenuItem();
         MnLabelTracker2 = new javax.swing.JMenuItem();
@@ -2288,6 +2294,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang.setName("MnGelang"); // NOI18N
         MnGelang.setPreferredSize(new java.awt.Dimension(220, 26));
+
+        MnBarcodeLabelObat.setBackground(new java.awt.Color(255, 255, 254));
+        MnBarcodeLabelObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnBarcodeLabelObat.setForeground(new java.awt.Color(50, 50, 50));
+        MnBarcodeLabelObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnBarcodeLabelObat.setMnemonic('L');
+        MnBarcodeLabelObat.setText("Label Obat 10");
+        MnBarcodeLabelObat.setToolTipText("L");
+        MnBarcodeLabelObat.setName("MnBarcodeLabelObat"); // NOI18N
+        MnBarcodeLabelObat.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnBarcodeLabelObat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnBarcodeLabelObatActionPerformed(evt);
+            }
+        });
+        MnGelang.add(MnBarcodeLabelObat);
 
         MnLabelTracker.setBackground(new java.awt.Color(255, 255, 254));
         MnLabelTracker.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4387,7 +4409,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2021" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-07-2022" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -4410,7 +4432,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2021" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-07-2022" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -4437,7 +4459,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2021" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-07-2022" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -4460,7 +4482,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2021" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-07-2022" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -5175,7 +5197,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
                     }
                 }else if(i==1){
                     MnBarcodeRM9ActionPerformed(null);
-                }else if(i==17){
+                }else if(i==16){
                     MnDPJPRanapActionPerformed(null);
                 }else if(i==18){
                     if(akses.getdpjp_ranap()==true){
@@ -11135,6 +11157,37 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }//GEN-LAST:event_MnSuratKontrolBPJSActionPerformed
 
+    private void MnBarcodeLabelObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBarcodeLabelObatActionPerformed
+         if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data pasien sudah habis...!!!!");
+            TNoRM.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data pasien dengan menklik data pada table...!!!");
+            tbKamIn.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                Map<String, Object> param = new HashMap<>();
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());
+                param.put("logo",Sequel.cariGambar("select logo from setting"));
+                Valid.MyReportqry("rptBarcodeLabelObat.jasper","report","::[ Label Obat ]::","select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
+                    "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, pasien.gol_darah, pasien.pekerjaan,"+
+                    "pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
+                    "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.pekerjaanpj,"+
+                    "concat(pasien.alamatpj,', ',pasien.kelurahanpj,', ',pasien.kecamatanpj,', ',pasien.kabupatenpj) as alamatpj from pasien "+
+                    "inner join kelurahan inner join kecamatan inner join kabupaten "+
+                    "inner join penjab on pasien.kd_pj=penjab.kd_pj and pasien.kd_kel=kelurahan.kd_kel "+
+                    "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab  where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",param);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    }//GEN-LAST:event_MnBarcodeLabelObatActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -11199,6 +11252,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnBarcode;
     private javax.swing.JMenuItem MnBarcode1;
     private javax.swing.JMenuItem MnBarcode2;
+    private javax.swing.JMenuItem MnBarcodeLabelObat;
     private javax.swing.JMenuItem MnBarcodeRM9;
     private javax.swing.JMenuItem MnBilling;
     private javax.swing.JMenuItem MnCekKepesertaan;

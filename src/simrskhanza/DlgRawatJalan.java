@@ -4003,7 +4003,8 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
                                     TTinggi.setText("");TBerat.setText("");TGCS.setText("");TKeluhan.setText("");
                                     TPemeriksaan.setText("");TAlergi.setText("");cmbImun.setSelectedIndex(0);
                                     TindakLanjut.setText("");TPenilaian.setText("");TInstruksi.setText("");
-                                    cmbKesadaran.setSelectedIndex(0);tampilPemeriksaan();
+                                    cmbKesadaran.setSelectedIndex(0);tampilPemeriksaan(); 
+                                    Sequel.mengedit("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Sudah",TNoRw.getText()});
                             }
                         }
                     }
@@ -4724,7 +4725,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         petugas.dispose();
         dokter.dispose();
         pasien.dispose();
-        Sequel.mengedit("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Sudah",TNoRw.getText()});
+//        Sequel.mengedit("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Sudah",TNoRw.getText()});
         dispose();
 }//GEN-LAST:event_BtnKeluarActionPerformed
 
@@ -6723,14 +6724,30 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     }
     
     public void setNoRm(String norwt,Date tgl1,Date tgl2) {
-       TNoRw.setText(norwt);
+        TNoRw.setText(norwt);
         TCari.setText("");
         DTPCari1.setDate(tgl1);
         DTPCari2.setDate(tgl2);
         isRawat();
         isPsien();  
         KdDok.setText(Sequel.cariIsi("select kd_dokter from reg_periksa where no_rawat=?",norwt));
-        
+        Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",TDokter,KdDok.getText());
+        KdDok2.setText(KdDok.getText());
+        KdDok3.setText(KdDok.getText());
+        TDokter2.setText(TDokter.getText()); 
+        TDokter3.setText(TDokter.getText()); 
+        KdPeg.setText(KdDok.getText());
+        TPegawai.setText(TDokter.getText()); ;
+        Sequel.cariIsi("select jbtn from pegawai where nik=?",Jabatan,KdPeg.getText());
+        ChkInput.setSelected(true);
+        isForm();
+        ChkInput1.setSelected(true);
+        isForm2();
+        ChkInput2.setSelected(true);
+        isForm3(); 
+        ChkInput3.setSelected(true);
+        isForm4();
+        TabRawatMouseClicked(null);
         
         Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",TDokter,KdDok.getText());
         Sequel.cariIsi("select keluhan_utama from penilaian_awal_keperawatan_ralan where no_rawat=?",TKeluhan,TNoRw.getText());
@@ -6766,19 +6783,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 //        Sequel.cariIsi("select bb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TBerat,TNoRw.getText());
 //        Sequel.cariIsi("select tb from penilaian_awal_keperawatan_ralan_bayi where no_rawat=?",TTinggi,TNoRw.getText());
         
-        KdDok2.setText(KdDok.getText());
-        KdDok3.setText(KdDok.getText());
-        TDokter2.setText(TDokter.getText()); 
-        TDokter3.setText(TDokter.getText()); 
-        ChkInput.setSelected(true);
-        isForm();
-        ChkInput1.setSelected(true);
-        isForm2();
-        ChkInput2.setSelected(true);
-        isForm3(); 
-        ChkInput3.setSelected(true);
-        isForm4();
-        TabRawatMouseClicked(null);
+        
     }
     
     private void isForm(){

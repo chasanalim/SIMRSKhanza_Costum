@@ -30,7 +30,7 @@ import bridging.SisruteRujukanKeluar;
 import laporan.DlgDiagnosaPenyakit;
 import laporan.DlgFrekuensiPenyakitRalan;
 import keuangan.DlgBilingRalan;
-import fungsi.WarnaTable;
+import fungsi.WarnaTableReg;
 import fungsi.batasInput;
 import grafikanalisa.grafikperiksaperagama;
 import grafikanalisa.grafikperiksaperbulan;
@@ -200,9 +200,9 @@ public final class DlgReg extends javax.swing.JDialog {
         setSize(885,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{
-            "P","No.Reg","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Dituju","Nomer RM",
-            "Pasien","J.K.","Umur","Poliklinik","Jenis Bayar","Penanggung Jawab","Alamat P.J.","Hubungan P.J.",
-            "Biaya Regristrasi","Status","No.Telp","Stts Rawat","Stts Poli","Kode Poli","Kode PJ","Status Bayar"
+            "P","No.Reg","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Dituju","No.RM",
+            "Pasien","J.K","Umur","Poliklinik","Jenis Bayar","Penanggung Jawab","Alamat","Hubungan P.J.",
+            "Biaya Regristrasi","Status","No.Telp","Status Rawat","Stts Poli","Kode Poli","Kode PJ","Status Bayar"
         }){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -231,59 +231,66 @@ public final class DlgReg extends javax.swing.JDialog {
 
         for (i = 0; i < 24; i++) {
             TableColumn column = tbPetugas.getColumnModel().getColumn(i);
-            if(i==0){
+            if(i==0){ //P
                 column.setPreferredWidth(20);
-            }else if(i==1){
+            }else if(i==1){ //No Reg
                 column.setPreferredWidth(45);
-            }else if(i==2){
+            }else if(i==2){ //No Rawat
                 column.setPreferredWidth(110);
-            }else if(i==3){
+            }else if(i==3){ //Tanggal
                 column.setPreferredWidth(70);
-            }else if(i==4){
-                column.setPreferredWidth(50);   
-            }else if(i==5){
-                column.setPreferredWidth(70);
-            }else if(i==6){
+            }else if(i==4){ //Jam
+                column.setPreferredWidth(55);   
+            }else if(i==5){ //Kd Dokter
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==6){ //Dokter
                 column.setPreferredWidth(200);
-            }else if(i==7){
-                column.setPreferredWidth(70);
-            }else if(i==8){
-                column.setPreferredWidth(200);
-            }else if(i==9){
-                column.setPreferredWidth(30);
-            }else if(i==10){
+            }else if(i==7){ //No RM
                 column.setPreferredWidth(50);
-            }else if(i==11){
-                column.setPreferredWidth(140);
-            }else if(i==12){
-                column.setPreferredWidth(140);
-            }else if(i==13){
-                column.setPreferredWidth(200);
-            }else if(i==14){
-                column.setPreferredWidth(140);
-            }else if(i==15){
-                column.setPreferredWidth(90);
-            }else if(i==16){
+            }else if(i==8){ // Pasien
+                column.setPreferredWidth(190);
+            }else if(i==9){ //JK
+                column.setPreferredWidth(25);
+            }else if(i==10){ //Umur
+                column.setPreferredWidth(40);
+            }else if(i==11){ //Poliklinik
+                column.setPreferredWidth(125);
+            }else if(i==12){ //Jenis Bayar
                 column.setPreferredWidth(100);
-            }else if(i==17){
-                column.setPreferredWidth(50);
-            }else if(i==18){
-                column.setPreferredWidth(95);
-            }else if(i==19){
+            }else if(i==13){ //PJ
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==14){ //Alamat
+                column.setPreferredWidth(170);
+            }else if(i==15){ //Hub PJ
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==16){ //Biaya Reg
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==17){ //Status Poli
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==18){ //Notelp
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==19){ //Status Rawat
                 column.setPreferredWidth(75);
-            }else if(i==20){
-                column.setPreferredWidth(50);
-            }else if(i==21){
+            }else if(i==20){ //Status Poli
+                column.setPreferredWidth(40);
+            }else if(i==21){ //Kd Poli
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==22){
+            }else if(i==22){ //Kd PJ
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==23){
-                column.setPreferredWidth(70);
+            }else if(i==23){ //Status Bayar
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }
         }
-        tbPetugas.setDefaultRenderer(Object.class, new WarnaTable());
+        tbPetugas.setDefaultRenderer(Object.class, new WarnaTableReg());
 
         tabMode2=new DefaultTableModel(null,new Object[]{
             "P","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Rujukan","Nomer RM",
@@ -362,7 +369,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 column.setMaxWidth(0);
             }
         }
-        tbPetugas2.setDefaultRenderer(Object.class, new WarnaTable());
+        tbPetugas2.setDefaultRenderer(Object.class, new WarnaTableReg());
         
         TNoReg.setDocument(new batasInput((byte)8).getKata(TNoReg));
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
@@ -840,6 +847,7 @@ public final class DlgReg extends javax.swing.JDialog {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        ppBerkasDiKirim1 = new javax.swing.JMenuItem();
         MnDataRM = new javax.swing.JMenu();
         MnRMIGD = new javax.swing.JMenu();
         MnDataTriaseIGD = new javax.swing.JMenuItem();
@@ -1166,6 +1174,22 @@ public final class DlgReg extends javax.swing.JDialog {
         tbPetugas2 = new widget.Table();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
+
+        ppBerkasDiKirim1.setBackground(new java.awt.Color(255, 255, 254));
+        ppBerkasDiKirim1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppBerkasDiKirim1.setForeground(new java.awt.Color(50, 50, 50));
+        ppBerkasDiKirim1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppBerkasDiKirim1.setText("Task Id 3 / Mulai Tunggu Poli ");
+        ppBerkasDiKirim1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppBerkasDiKirim1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppBerkasDiKirim1.setName("ppBerkasDiKirim1"); // NOI18N
+        ppBerkasDiKirim1.setPreferredSize(new java.awt.Dimension(180, 26));
+        ppBerkasDiKirim1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppBerkasDiKirim1BtnPrintActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(ppBerkasDiKirim1);
 
         MnDataRM.setBackground(new java.awt.Color(250, 255, 245));
         MnDataRM.setForeground(new java.awt.Color(50, 50, 50));
@@ -10786,6 +10810,20 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }//GEN-LAST:event_ppBerkasDiKirimBtnPrintActionPerformed
 
+    private void ppBerkasDiKirim1BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppBerkasDiKirim1BtnPrintActionPerformed
+      if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            //TNoReg.requestFocus();
+        }else if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+            Sequel.menyimpan("mutasi_berkas","'"+TNoRw.getText()+"','Sudah Dikirim',now(),'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'","status='Sudah Dikirim',dikirim=now()","no_rawat='"+TNoRw.getText()+"'");
+            Valid.editTable(tabMode,"reg_periksa","no_rawat",TNoRw,"stts='Berkas Terkirim'");
+            if(tabMode.getRowCount()!=0){tampil();}
+        }
+    }//GEN-LAST:event_ppBerkasDiKirim1BtnPrintActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -11097,6 +11135,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private widget.panelisi panelGlass8;
     private javax.swing.JMenuItem ppBerkas;
     private javax.swing.JMenuItem ppBerkasDiKirim;
+    private javax.swing.JMenuItem ppBerkasDiKirim1;
     private javax.swing.JMenuItem ppBerkasDigital;
     private javax.swing.JMenuItem ppBerkasDigital1;
     private javax.swing.JMenuItem ppCatatanPasien;

@@ -18,7 +18,7 @@ import inventory.DlgResepObat;
 import inventory.DlgPemberianObat;
 import laporan.DlgDiagnosaPenyakit;
 import keuangan.DlgBilingRalan;
-import fungsi.WarnaTable;
+import fungsi.WarnaTableRajal;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
@@ -149,7 +149,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         setSize(885,674);
 
         tabModekasir=new DefaultTableModel(null,new String[]{
-            "Kd.Dokter","Dokter Dituju","No.RM","Pasien",
+            "Kd.Dok","Dokter Dituju","No.RM","Pasien",
             "Poliklinik","Penanggung Jawab","Alamat P.J.","Hubungan P.J.",
             "Biaya Reg","Jenis Bayar","Status","No.Rawat","Tanggal",
             "Jam","No.Reg","Status Bayar","Stts Poli","Kd PJ","Kd Poli","No.Telp Pasien"}){
@@ -162,51 +162,55 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         for (i = 0; i < 20; i++) {
             TableColumn column = tbKasirRalan.getColumnModel().getColumn(i);
-            if(i==0){
-                column.setPreferredWidth(70);
-            }else if(i==1){
-                column.setPreferredWidth(180);
-            }else if(i==2){
-                column.setPreferredWidth(65);
-            }else if(i==3){
-                column.setPreferredWidth(170);
-            }else if(i==4){
-                column.setPreferredWidth(140);
-            }else if(i==5){
-                column.setPreferredWidth(130);
-            }else if(i==6){
-                column.setPreferredWidth(160);
-            }else if(i==7){
-                column.setPreferredWidth(80);
-            }else if(i==8){
-                column.setPreferredWidth(60);
-            }else if(i==9){
-                column.setPreferredWidth(100);
-            }else if(i==10){
-                column.setPreferredWidth(75);
-            }else if(i==11){
-                column.setPreferredWidth(105);
-            }else if(i==12){
-                column.setPreferredWidth(65);
-            }else if(i==13){
-                column.setPreferredWidth(55);
-            }else if(i==14){
-                column.setPreferredWidth(47);
-            }else if(i==15){
-                column.setPreferredWidth(70);
-            }else if(i==16){
+            if(i==0){ //KD Dokter
                 column.setPreferredWidth(50);
-            }else if(i==17){
+            }else if(i==1){ //Dokter
+                column.setPreferredWidth(170);
+            }else if(i==2){ // No RM
+                column.setPreferredWidth(55);
+            }else if(i==3){ //Pasien
+                column.setPreferredWidth(170);
+            }else if(i==4){ // Poliklinik
+                column.setPreferredWidth(140);
+            }else if(i==5){ //PJ
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==18){
+            }else if(i==6){ //Alamat
+                column.setPreferredWidth(160);
+            }else if(i==7){ //Hub PJ
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==19){
+            }else if(i==8){ //Biaya Reg
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==9){ //Jenis Bayar
+                column.setPreferredWidth(100);
+            }else if(i==10){ //Status
+                column.setPreferredWidth(80);
+            }else if(i==11){ //No Rawat
+                column.setPreferredWidth(105);
+            }else if(i==12){ //tanggal
+                column.setPreferredWidth(65);
+            }else if(i==13){ //Jam
+                column.setPreferredWidth(55);
+            }else if(i==14){ //No Reg
+                column.setPreferredWidth(47);
+            }else if(i==15){ //Status Bayar
+                column.setPreferredWidth(70);
+            }else if(i==16){ // Status Poli
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==17){ //Kd Poli
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==18){ //Kd PJ
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==19){ //No Telp
                 column.setPreferredWidth(95);
             }
         }
-        tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
+        tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableRajal());
         
         tabModekasir2=new DefaultTableModel(null,new String[]{
             "Kd.Dokter","Dokter Rujukan","Nomer RM","Pasien",
@@ -257,7 +261,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 column.setPreferredWidth(110);
             }
         }
-        tbKasirRalan2.setDefaultRenderer(Object.class, new WarnaTable());
+        tbKasirRalan2.setDefaultRenderer(Object.class, new WarnaTableRajal());
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         CrPoli.setDocument(new batasInput((byte)100).getKata(CrPoli));
@@ -517,6 +521,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        ppBerkasDIterima1 = new javax.swing.JMenuItem();
         MnDataRM = new javax.swing.JMenu();
         MnRMIGD = new javax.swing.JMenu();
         MnDataTriaseIGD = new javax.swing.JMenuItem();
@@ -844,6 +849,25 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         jPopupMenu1.setForeground(new java.awt.Color(50, 50, 50));
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
+
+        ppBerkasDIterima1.setBackground(new java.awt.Color(255, 255, 254));
+        ppBerkasDIterima1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppBerkasDIterima1.setForeground(new java.awt.Color(50, 50, 50));
+        ppBerkasDIterima1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppBerkasDIterima1.setText("Task Id 4 / Mulai Pelayanan Poli / Berkas Diterima");
+        ppBerkasDIterima1.setToolTipText("");
+        ppBerkasDIterima1.setActionCommand("Task Id 4 / Mulai Pelayanan Poli / Berkas Diterima");
+        ppBerkasDIterima1.setAutoscrolls(true);
+        ppBerkasDIterima1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppBerkasDIterima1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppBerkasDIterima1.setName("ppBerkasDIterima1"); // NOI18N
+        ppBerkasDIterima1.setPreferredSize(new java.awt.Dimension(180, 26));
+        ppBerkasDIterima1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppBerkasDIterima1BtnPrintActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(ppBerkasDIterima1);
 
         MnDataRM.setBackground(new java.awt.Color(250, 255, 245));
         MnDataRM.setForeground(new java.awt.Color(50, 50, 50));
@@ -7987,7 +8011,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             tbKasirRalan.requestFocus();
         }else{
-            Sequel.menyimpan("mutasi_berkas","'"+TNoRw.getText()+"','Sudah Diterima',now(),now(),'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'","status='Sudah Diterima',diterima=now()","no_rawat='"+TNoRw.getText()+"'");
+            Sequel.menyimpan("mutasi_berkas","'"+TNoRw.getText()+"','Sudah Diterima','0000-00-00 00:00:00',now(),'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'","status='Sudah Diterima',diterima=now()","no_rawat='"+TNoRw.getText()+"'");
             Valid.editTable(tabModekasir,"reg_periksa","no_rawat",TNoRw,"stts='Berkas Diterima'");
             if(tabModekasir.getRowCount()!=0){tampilkasir();}
         }
@@ -9424,6 +9448,20 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     }//GEN-LAST:event_ppBerkasDiKirimBtnPrintActionPerformed
 
+    private void ppBerkasDIterima1BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppBerkasDIterima1BtnPrintActionPerformed
+         if(tabModekasir.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            //TNoReg.requestFocus();
+        }else if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbKasirRalan.requestFocus();
+        }else{
+            Sequel.menyimpan("mutasi_berkas","'"+TNoRw.getText()+"','Sudah Diterima','0000-00-00 00:00:00',now(),'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'","status='Sudah Diterima',diterima=now()","no_rawat='"+TNoRw.getText()+"'");
+            Valid.editTable(tabModekasir,"reg_periksa","no_rawat",TNoRw,"stts='Berkas Diterima'");
+            if(tabModekasir.getRowCount()!=0){tampilkasir();}
+        }
+    }//GEN-LAST:event_ppBerkasDIterima1BtnPrintActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -9745,6 +9783,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private javax.swing.JMenuItem ppBerkasDIterima;
+    private javax.swing.JMenuItem ppBerkasDIterima1;
     private javax.swing.JMenuItem ppBerkasDiKirim;
     private javax.swing.JMenuItem ppBerkasDigital;
     private javax.swing.JMenuItem ppBerkasDigital1;
@@ -10029,6 +10068,12 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             }
         }
         
+        try {
+            namadokter=koneksiDB.DOKTERAKTIFKASIRRALAN();
+        } catch (Exception e) {
+            namadokter="";
+        }   
+        
         if(!namadokter.equals("")){
             if(akses.getkode().equals("Admin Utama")){
                 CrPtg.setText("");
@@ -10040,8 +10085,16 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 CrPtg.setEditable(false);
             }                
         }else{
-            BtnSeek3.setEnabled(true);
-            CrPtg.setEditable(true);
+            namadokter=Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",akses.getkode());
+            if(!namadokter.equals("")){
+                CrPtg.setText(namadokter);
+                BtnSeek3.setEnabled(false);
+                CrPtg.setEditable(false);
+            }else{
+                CrPtg.setText("");
+                BtnSeek3.setEnabled(true);
+                CrPtg.setEditable(true);
+            }
         }
         
         if(!namapoli.equals("")){

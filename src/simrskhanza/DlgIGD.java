@@ -181,9 +181,9 @@ public final class DlgIGD extends javax.swing.JDialog {
         this.setLocation(8,1);
         setSize(885,674);
 
-        Object[] row={"P","No.Reg","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Dituju","Nomer RM",
-            "Pasien","J.K.","Umur","Poliklinik","Penanggung Jawab","Alamat P.J.","Hubungan dg P.J.",
-            "Biaya Regristrasi","Status","Jenis Bayar","Stts Rawat","Kd PJ","Status Bayar"};
+        Object[] row={"P","No","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Dituju","No.RM",
+            "Pasien","J.K","Umur","Poliklinik","PJ","Alamat P.J.","Hub P.J.",
+            "Biaya","Stts","Jns Bayar","Stts Rawat","Kd PJ","Status Bayar"};
         tabMode=new DefaultTableModel(null,row){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -212,48 +212,49 @@ public final class DlgIGD extends javax.swing.JDialog {
 
         for (i = 0; i < 21; i++) {
             TableColumn column = tbPetugas.getColumnModel().getColumn(i);
-            if(i==0){
+            if(i==0){ //P
                 column.setPreferredWidth(20);
-            }else if(i==1){
-                column.setPreferredWidth(45);
-            }else if(i==2){
-                column.setPreferredWidth(110);
-            }else if(i==3){
-                column.setPreferredWidth(70);
-            }else if(i==4){
-                column.setPreferredWidth(50);   
-            }else if(i==5){
-                column.setPreferredWidth(70);
-            }else if(i==6){
-                column.setPreferredWidth(200);
-            }else if(i==7){
-                column.setPreferredWidth(70);
-            }else if(i==8){
-                column.setPreferredWidth(200);
-            }else if(i==9){
-                column.setPreferredWidth(30);
-            }else if(i==10){
+            }else if(i==1){ //No Reg
+                column.setPreferredWidth(25);
+            }else if(i==2){ //No Rawat
+                column.setPreferredWidth(105);
+            }else if(i==3){ // Tanggal
+                column.setPreferredWidth(60);
+            }else if(i==4){ //Jam
+                column.setPreferredWidth(55);   
+            }else if(i==5){ // Kd Dokter
+                column.setMinWidth(0);
+                column.setMaxWidth(0);;
+            }else if(i==6){ // Dokter
+                column.setPreferredWidth(150);
+            }else if(i==7){ // No RM
                 column.setPreferredWidth(50);
-            }else if(i==11){
-                column.setPreferredWidth(140);
-            }else if(i==12){
-                column.setPreferredWidth(140);
-            }else if(i==13){
-                column.setPreferredWidth(200);
-            }else if(i==14){
-                column.setPreferredWidth(90);
-            }else if(i==15){
-                column.setPreferredWidth(90);
-            }else if(i==16){
-                column.setPreferredWidth(50);
-            }else if(i==17){
-                column.setPreferredWidth(80);
-            }else if(i==18){
-                column.setPreferredWidth(70);
-            }else if(i==19){
+            }else if(i==8){ // Pasien
+                column.setPreferredWidth(180);
+            }else if(i==9){ //JK
+                column.setPreferredWidth(20);
+            }else if(i==10){ //Umur
+                column.setPreferredWidth(40);
+            }else if(i==11){ //Poliklinik
+                column.setPreferredWidth(125);
+            }else if(i==12){ //PJ
+                column.setPreferredWidth(100);
+            }else if(i==13){ //Alamat
+                column.setPreferredWidth(120);
+            }else if(i==14){ //HUB PJ
+                column.setPreferredWidth(60);
+            }else if(i==15){ //Biaya Reg
+                column.setPreferredWidth(40);
+            }else if(i==16){ //Status 
+                column.setPreferredWidth(35);
+            }else if(i==17){ //Jenis Bayar
+                column.setPreferredWidth(60);
+            }else if(i==18){ //Status Rawat 
+                column.setPreferredWidth(60);
+            }else if(i==19){ //Kd PJ
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==20){
+            }else if(i==20){ //Status Bayar
                 column.setPreferredWidth(70);
             }
         }
